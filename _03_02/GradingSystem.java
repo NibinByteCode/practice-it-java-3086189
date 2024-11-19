@@ -5,7 +5,14 @@ public class GradingSystem {
   public boolean isAPass(int percentage) {
     // Return true if the percentage is higher than or equal to 60.
     // Otherwise return false.
-    return false;
+    if(percentage>=60)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   public char getGrade(int percentage) {
@@ -14,7 +21,18 @@ public class GradingSystem {
     // If it's 70-79, return 'C'.
     // If it's 60-69, return 'D'.
     // If it's less than 60, return 'F'.
+    if(percentage>=90)
+    return 'A';
+    else if (89>=percentage && percentage>=80)
+    return 'B';
+    else if (79>=percentage && percentage>=70)
+    return 'C';
+    else if (69 >= percentage && percentage >= 60)
+    return 'D';
+    else if (60 > percentage)
+    return 'F';
     return 'X';
+   
   }
 
   public String retakeMessage(int percentage, boolean allowedToRetake) {
@@ -24,7 +42,14 @@ public class GradingSystem {
     // that says "The student is not allowed to retake this exam."
     // If percentage is 60 or higher, return a String that says "A retake is not
     // required."
-    return "";
+    if (percentage>60)
+    return "A retake is not required.";
+    if(percentage<60 && allowedToRetake)
+    return "The student has been entered for a retake.";
+    if(percentage<60 && !allowedToRetake)
+    return "The student is not allowed to retake this exam.";
+        return " ";
+    
   }
 
 }
